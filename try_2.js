@@ -32,6 +32,9 @@ app.get("/grocery/:item",(req,res) =>{
         const { item } =req.params;
         const grocery_item = grocery_list.find((g) => g.item === item); 
         res.send(grocery_item)
+        
+        // this is more  of a rookie way to show a specific item but it 
+        // can only be used to show an item by using index value
         // if(index>=0 && index <=grocery_list.length)
         //    {  res.json(grocery_list[index-1]);
         //    }
