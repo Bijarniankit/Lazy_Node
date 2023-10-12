@@ -1,6 +1,6 @@
-const express = require("express");
-const app = express();
-const port=2001;
+const Router = require('express');
+
+const router = Router();
 
 let grocery_list=[
     {   "item":"milk",
@@ -16,19 +16,13 @@ let grocery_list=[
     },
 ];
 
-// middleware
-app.use(express.json());
-// app.use((req,res)=>{
-//     res.send($())
-// });
 
 
-app.get('/grocery', (req,res) =>{
+router.get('/grocery', (req,res) =>{
     res.json(grocery_list);
 });
 
-
-app.get("/grocery/:item",(req,res) =>{
+router.get("/grocery/:item",(req,res) =>{
         const { item } =req.params;
         const grocery_item = grocery_list.find((g) => g.item === item); 
         res.send(grocery_item)
@@ -44,15 +38,13 @@ app.get("/grocery/:item",(req,res) =>{
 
 });
 
-
-app.post('/grocery', (req,res)=>{
+router.post('/grocery', (req,res)=>{
     console.log(req.body);
     grocery_list.push(req.body);
     res.json(grocery_list);
 });
 
-
-app.put('/grocery', (req,res)=>{
+router.put('/grocery', (req,res)=>{
     grocery_list=[];
     grocery_list.push(req.body);
     
@@ -61,8 +53,7 @@ app.put('/grocery', (req,res)=>{
 
 
 
-
-app.delete("/grocery/:id",(req,res) =>{
+router.delete("/grocery/:id",(req,res) =>{
     const index =parseInt(req.params.id);
     if(index>=0 && index <=grocery_list.length)
        {  grocery_list.splice(index-1,1);
@@ -72,14 +63,13 @@ app.delete("/grocery/:id",(req,res) =>{
         res.send("item not found");
      }  
 
-});
-app.delete("/grocery",(req,res) => {
+});router.delete("/grocery",(req,res) => {
     grocery_list=[];
     res.json(grocery_list)
 });
 
 
 
-app.listen(port, () =>{
-    console.log("servere is running at : " +port)
-}); 
+
+
+module.exports = router;
