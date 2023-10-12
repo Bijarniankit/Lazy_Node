@@ -23,8 +23,11 @@ app.use(express.json())
 
 //requests
 app.get('/', function (req, res) {
-    res.send("<h1>Hello there! Dear Sachin Jaat sir </h1>");
-    res.send(<a href="http://localhost:3004/detail">Click here to </a>)
+    res.send(` 
+              <h1>Hello there! Dear Sachin Jaat sir </h1>
+              <a href="http://localhost:3004/detail">Click me</a>
+              `);
+    
 });
 
 app.get("/detail", (req,res) => {
