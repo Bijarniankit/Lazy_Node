@@ -1,16 +1,15 @@
 const Router = require('express');
-
 const router = Router();
-
-let grocery_list=[
-    {   "item":"milk",
+                                      
+let grocery_list = [
+  {   "item":"milk",
         "quantity":2
     },
-    {
+  {
         "item":"cereal",
         "quantity":1
     },
-    {
+  {
         "item":"pop-tarts",
         "quantity":1
     },
@@ -19,6 +18,7 @@ let grocery_list=[
 
 
 router.get('/grocery', (req,res) =>{
+    // const quantity = req,qwery
     res.json(grocery_list);
 });
 
@@ -67,7 +67,6 @@ router.delete("/grocery/:id",(req,res) =>{
     grocery_list=[];
     res.json(grocery_list)
 });
-
 
 
 
