@@ -12,7 +12,7 @@ const  marketroute = require('./routes/market')
 app.use(express.json());
 // just to check which route/method and on which url
 app.use((req,res,next)=>{
-    console.log('${req.method}:${0req.url}')
+    console.log(`${req.method}:${req.url}`);
     next();
 });
 app.use(groceriesroute);  // importing groceries routes in index file
