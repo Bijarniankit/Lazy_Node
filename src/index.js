@@ -1,15 +1,19 @@
 const express = require("express");
 const app = express();
-const port=2001;
+
 
 const  groceriesroute = require('./routes/groceries')
-const  marketroute = require('./routes/market')
+const  marketroute = require('./routes/market');
 
+const port=2001;
 
+require('./database/db.js');
 
 
 // middleware
 app.use(express.json());
+
+
 
 app.use((req,res,next)=>{                // just to check which route/method and on which url
     console.log(`${req.method}:${req.url}`);

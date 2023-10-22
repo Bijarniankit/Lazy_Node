@@ -18,7 +18,9 @@ let grocery_list = [
 
 
 router.get('/grocery', (req,res) =>{
-    // const quantity = req,qwery
+    // res.cookie('visited', true, {  // didnt  understand ths part
+    //     maxAge: 10000,
+    // });
     res.json(grocery_list);
 });
 
